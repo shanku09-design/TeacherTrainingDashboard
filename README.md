@@ -20,4 +20,4 @@ Open http://127.0.0.1:4173 in a browser and sign in using one of the prefilled d
 - `.github/agents/` and `.codex/agents/` — project agent profiles
 - `.agents/skills/teacher-training-dashboard/` — dashboard development skill
 
-The codebase is a client-side prototype with sample data and demo-only authentication.
+The codebase is a client-side prototype with sample data and demo-only authentication. Pushing changes under `codebase/` to `main` triggers the GitHub Pages deployment workflow in `.github/workflows/deploy-pages.yml`. Set the repository Pages publishing source to **GitHub Actions** if prompted in Settings → Pages. The deployment publishes only the static demo assets; it does not add production authentication or a backend.

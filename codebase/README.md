@@ -27,4 +27,4 @@ Compile Sass after installing Sass: `npx sass src/scss/main.scss assets/css/app.
 
 ## Demo scope
 
-This is a client-side prototype with sample data. Persona selection creates demo-only tokens in browser session storage; they are not server-authenticated credentials and cannot revoke server-issued tokens. Sign out or expiry clears the app-owned token keys. Production authentication, role enforcement, and tenant isolation require a backend.
+This is a client-side prototype with sample data. It can be deployed as a static demo through the repository GitHub Pages workflow. Persona selection creates demo-only tokens in browser session storage; they are not server-authenticated credentials and cannot revoke server-issued tokens. Sign out or expiry clears the app-owned token keys. Production authentication, role enforcement, and tenant isolation require a backend.

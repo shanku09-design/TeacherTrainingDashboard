@@ -1,0 +1,55 @@
+name: Deploy teacher training demo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - codebase/**
+      - .github/workflows/deploy-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static site artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/assets
+          cp codebase/index.html codebase/dashboard.html dist/
+          cp -R codebase/assets/css codebase/assets/js dist/assets/
+          test -s dist/index.html
+          test -s dist/dashboard.html
+          test -s dist/assets/js/auth.js
+          test -s dist/assets/js/app.js
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
