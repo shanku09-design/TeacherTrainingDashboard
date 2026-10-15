@@ -1,0 +1,512 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Teacher Training Tracker — Test Cases"><title>Teacher Training Tracker — Test Cases</title><style>:root{--ink:#18312d;--muted:#61736e;--green:#087f67;--line:#dce6e1;--wash:#f3f7f5;--paper:#fff;--gold:#d28b24}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eef3f0;color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}.topbar{background:#103e35;color:white;padding:13px clamp(18px,4vw,54px);display:flex;gap:14px;align-items:center;flex-wrap:wrap}.brand{font-weight:750;letter-spacing:.02em}.topbar a{color:#d4f0e5;text-decoration:none;font-size:.9rem}.wrap{max-width:1440px;margin:auto;padding:28px clamp(16px,3vw,42px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px}.toc{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.toc h2{font-size:1rem;margin:0 0 12px}.toc a{display:block;color:#35574f;text-decoration:none;padding:5px 7px;border-radius:6px;font-size:.83rem;line-height:1.35}.toc a:hover,.toc a.active{background:#e8f4ef;color:#056c59}.toc a.sub{padding-left:17px;font-size:.78rem}.content{min-width:0;background:white;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,58px);box-shadow:0 12px 32px #164a3510}.content h1{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.035em;line-height:1.12;color:#103e35;margin:.1em 0 .2em}.subtitle{font-size:1.15rem;color:var(--muted);margin:.4em 0 1.5em}.content h2{font-size:1.55rem;line-height:1.25;margin:2.4em 0 .65em;padding-top:.25em;border-bottom:1px solid var(--line);padding-bottom:.4em;color:#145c4d;scroll-margin-top:20px}.content h3{font-size:1.13rem;line-height:1.4;margin:1.6em 0 .45em;color:#183f36;scroll-margin-top:20px}.content h4{font-size:1rem}.content p{margin:.55em 0 1em}.kicker{text-transform:uppercase;letter-spacing:.13em;font-weight:750;color:var(--green);font-size:.76rem}.meta{font-size:.9rem;color:var(--muted);margin:.25em 0!important}.callout{border-left:4px solid var(--gold);padding:13px 16px;background:#fff7e8;border-radius:0 9px 9px 0;margin:20px 0}.table-wrap{overflow:auto;margin:20px 0 26px;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:.91rem}th,td{padding:10px 13px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#eaf4ef;color:#174e41;font-weight:700}tr:last-child td{border-bottom:0}.list-item{position:relative;padding-left:22px}.list-item:before{content:"";position:absolute;left:6px;top:.78em;width:6px;height:6px;background:var(--green);border-radius:50%}.tools{display:flex;gap:12px;align-items:center;margin:0 0 22px}.search{width:min(100%,420px);border:1px solid #bdcec6;border-radius:9px;padding:10px 13px;font:inherit}.count{color:var(--muted);font-size:.86rem}.footer{color:var(--muted);font-size:.82rem;border-top:1px solid var(--line);padding-top:18px;margin-top:40px}@media(max-width:850px){.wrap{grid-template-columns:1fr;gap:14px}.toc{position:relative;top:0;max-height:230px}.content{padding:22px}.topbar{padding:12px 18px}}@media print{body{background:#fff}.topbar,.toc,.tools{display:none!important}.wrap{display:block;padding:0}.content{box-shadow:none;border:0;padding:0}.content h2{break-after:avoid}.table-wrap{overflow:visible;border:0}table{font-size:9pt}a{color:inherit}}</style></head><body><header class="topbar"><span class="brand">TRAINING TRACKER</span><span style="opacity:.65">/</span><a href="index.html">Document library</a><a href="Teacher-Training-Tracker-PRD.html">Open PRD →</a></header><div class="wrap"><nav class="toc" aria-label="Table of contents"><h2>Contents</h2><a class="" href="#purpose">Purpose</a><a class="sub" href="#readiness-is-explicit">Readiness is explicit</a><a class="" href="#execution-guidance">Execution guidance</a><a class="sub" href="#decision-handling">Decision handling</a><a class="" href="#01-project-access-masters-and-training-plans">01 | Project, access, masters and training plans</a><a class="sub" href="#tc-001-select-and-create-project-from-odoo">TC-001 | Select and create project from Odoo</a><a class="sub" href="#tc-002-duplicate-project-and-invalid-date-boundaries">TC-002 | Duplicate project and invalid date boundaries</a><a class="sub" href="#tc-003-odoo-unavailable-during-project-setup">TC-003 | Odoo unavailable during project setup</a><a class="sub" href="#tc-004-project-scope-and-single-project-landing">TC-004 | Project scope and single-project landing</a><a class="sub" href="#tc-005-trainer-pool-crud-and-assignment-history">TC-005 | Trainer pool CRUD and assignment history</a><a class="sub" href="#tc-006-trainer-availability-boundary-and-overlap">TC-006 | Trainer availability boundary and overlap</a><a class="sub" href="#tc-007-national-and-state-holiday-scheduling">TC-007 | National and state holiday scheduling</a><a class="sub" href="#tc-008-create-project-linked-plan-and-generated-code">TC-008 | Create project-linked plan and generated code</a><a class="sub" href="#tc-009-plan-code-uniqueness-and-new-plan-type">TC-009 | Plan code uniqueness and new plan type</a><a class="sub" href="#tc-010-assign-multiple-day-resources-and-forms">TC-010 | Assign multiple day resources and forms</a><a class="sub" href="#tc-011-reject-day-outside-plan-duration">TC-011 | Reject day outside plan duration</a><a class="sub" href="#tc-012-common-project-repository-permissions-and-file-validation">TC-012 | Common/project repository permissions and file validation</a><a class="sub" href="#tc-013-day-based-resource-availability-and-expiry">TC-013 | Day-based resource availability and expiry</a><a class="sub" href="#tc-014-resource-edit-removal-after-plan-use">TC-014 | Resource edit/removal after plan use</a><a class="" href="#02-batch-setup-uploads-and-registration">02 | Batch setup, uploads and registration</a><a class="sub" href="#tc-015-valid-batch-spreadsheet-import">TC-015 | Valid batch spreadsheet import</a><a class="sub" href="#tc-016-batch-file-column-row-and-reference-errors">TC-016 | Batch file, column, row and reference errors</a><a class="sub" href="#tc-017-batch-date-and-plan-duration-boundaries">TC-017 | Batch date and plan duration boundaries</a><a class="sub" href="#tc-018-capacity-changes-with-existing-registrations">TC-018 | Capacity changes with existing registrations</a><a class="sub" href="#tc-019-batch-list-edit-delete-and-lifecycle-restrictions">TC-019 | Batch list edit/delete and lifecycle restrictions</a><a class="sub" href="#tc-020-open-and-closed-batch-registration-toggle">TC-020 | Open and closed batch registration toggle</a><a class="sub" href="#tc-021-registration-window-start-end-and-timezone">TC-021 | Registration window start, end and timezone</a><a class="sub" href="#tc-022-capacity-under-concurrent-registration">TC-022 | Capacity under concurrent registration</a><a class="sub" href="#tc-023-trainee-id-lookup-and-otp-success-failure">TC-023 | Trainee ID lookup and OTP success/failure</a><a class="sub" href="#tc-024-duplicate-cross-batch-and-re-enrollment-attempts">TC-024 | Duplicate, cross-batch and re-enrollment attempts</a><a class="sub" href="#tc-025-trainer-admin-roster-upload-and-approval-workflow">TC-025 | Trainer/admin roster upload and approval workflow</a><a class="" href="#03-attendance-progress-and-certification">03 | Attendance, progress and certification</a><a class="sub" href="#tc-026-attendance-present-absent-for-today-and-past-day">TC-026 | Attendance present/absent for today and past day</a><a class="sub" href="#tc-027-block-future-attendance-and-unauthorized-entry">TC-027 | Block future attendance and unauthorized entry</a><a class="sub" href="#tc-028-attendance-correction-duplicate-save-and-audit">TC-028 | Attendance correction, duplicate save and audit</a><a class="sub" href="#tc-029-progress-status-transitions-across-training-journey">TC-029 | Progress status transitions across training journey</a><a class="sub" href="#tc-030-completion-formula-permutations">TC-030 | Completion formula permutations</a><a class="sub" href="#tc-031-certificate-eligibility-gate">TC-031 | Certificate eligibility gate</a><a class="sub" href="#tc-032-certificate-template-content-and-rendering">TC-032 | Certificate template content and rendering</a><a class="sub" href="#tc-033-certificate-correction-reissue-and-revocation">TC-033 | Certificate correction, reissue and revocation</a><a class="" href="#04-dashboards-mis-privacy-and-audit">04 | Dashboards, MIS, privacy and audit</a><a class="sub" href="#tc-034-role-dashboard-contents-and-permitted-actions">TC-034 | Role dashboard contents and permitted actions</a><a class="sub" href="#tc-035-dashboard-scope-filters-and-direct-access">TC-035 | Dashboard scope filters and direct access</a><a class="sub" href="#tc-036-common-mis-coverage-and-exception-indicators">TC-036 | Common MIS coverage and exception indicators</a><a class="sub" href="#tc-037-mis-filtering-reconciliation-and-refresh">TC-037 | MIS filtering, reconciliation and refresh</a><a class="sub" href="#tc-038-mis-exports-across-formats-and-roles">TC-038 | MIS exports across formats and roles</a><a class="sub" href="#tc-039-personal-information-masking-and-authorized-clear-name-contexts">TC-039 | Personal information masking and authorized clear-name contexts</a><a class="sub" href="#tc-040-login-resource-access-and-otp-activity-reports">TC-040 | Login, resource access and OTP activity reports</a><a class="sub" href="#tc-041-user-role-access-admin-and-effective-revocation">TC-041 | User/role/access admin and effective revocation</a><a class="sub" href="#tc-042-audit-important-changes-and-protect-sensitive-values">TC-042 | Audit important changes and protect sensitive values</a><a class="" href="#05-validation-security-and-dependencies">05 | Validation, security and dependencies</a><a class="sub" href="#tc-043-server-side-validation-and-file-extension-bypass">TC-043 | Server-side validation and file extension bypass</a><a class="sub" href="#tc-044-file-content-size-and-malware-validation">TC-044 | File content, size and malware validation</a><a class="sub" href="#tc-045-credential-transport-storage-encryption-and-secrets-handling">TC-045 | Credential transport, storage encryption and secrets handling</a><a class="sub" href="#tc-046-repeated-login-failures-and-15-minute-cool-off">TC-046 | Repeated login failures and 15-minute cool-off</a><a class="sub" href="#tc-047-otp-expiry-retries-resend-and-failure-recovery">TC-047 | OTP expiry, retries, resend and failure recovery</a><a class="sub" href="#tc-048-exception-thresholds-and-false-positive-checks">TC-048 | Exception thresholds and false-positive checks</a><a class="sub" href="#tc-049-activity-tracking-minimization-access-control-and-retention">TC-049 | Activity tracking minimization, access control and retention</a><a class="sub" href="#tc-050-save-upload-dependency-failure-and-retry-integrity">TC-050 | Save/upload dependency failure and retry integrity</a><a class="sub" href="#tc-051-otp-provider-unavailable-and-safe-user-recovery">TC-051 | OTP provider unavailable and safe user recovery</a><a class="sub" href="#tc-052-odoo-outage-and-integration-error-handling">TC-052 | Odoo outage and integration error handling</a><a class="sub" href="#tc-053-trainer-conflict-and-holiday-indicators-reconcile">TC-053 | Trainer conflict and holiday indicators reconcile</a><a class="sub" href="#tc-054-completion-certification-and-mis-end-to-end-reconciliation">TC-054 | Completion, certification and MIS end-to-end reconciliation</a><a class="sub" href="#tc-055-master-data-ownership-and-crud-authorization-matrix">TC-055 | Master-data ownership and CRUD authorization matrix</a><a class="sub" href="#tc-056-cross-role-and-cross-scope-authorization-matrix">TC-056 | Cross-role and cross-scope authorization matrix</a><a class="sub" href="#tc-057-data-integrity-duplicate-submission-and-upload-retry">TC-057 | Data integrity, duplicate submission and upload retry</a><a class="sub" href="#tc-058-dashboard-and-mis-nonfunctional-limits">TC-058 | Dashboard and MIS nonfunctional limits</a><a class="sub" href="#tc-059-security-and-privacy-stakeholder-acceptance-gate">TC-059 | Security and privacy stakeholder acceptance gate</a><a class="sub" href="#tc-060-stakeholder-decision-closure-and-uat-readiness">TC-060 | Stakeholder decision closure and UAT readiness</a><a class="" href="#appendix-a-functional-requirement-coverage">Appendix A | Functional requirement coverage</a><a class="" href="#appendix-b-decision-traceability-and-blocked-test-register">Appendix B | Decision traceability and blocked-test register</a><a class="" href="#appendix-c-confirmed-business-rule-coverage">Appendix C | Confirmed business rule coverage</a><a class="" href="#appendix-d-exit-criteria-and-sign-off">Appendix D | Exit criteria and sign-off</a><a class="sub" href="#source">Source</a></nav><main class="content"><div class="tools"><input class="search" type="search" placeholder="Find text in this document…" aria-label="Find text in this document"><span class="count" aria-live="polite"></span></div><h1><strong>TEACHER TRAINING TRACKER</strong></h1>
+<p class="subtitle"><strong>Stakeholder Test Case Specification</strong></p>
+<p>Prepared by: Tester Developer agent</p>
+<p>Baseline: Teacher-Training-Tracker-PRD.docx | Draft for stakeholder review</p>
+<p>Version 1.0 | Prepared 15 October 2026</p>
+<p>Audience: Business, project, product, engineering, QA, operations, and Information Security / Compliance stakeholders.</p>
+<h2 id="purpose"><strong>Purpose</strong></h2>
+<p>This specification expands the PRD acceptance scenarios into executable, traceable tests. It covers every functional requirement FR-01 through FR-30, confirmed business rules BR-01 through BR-12, decision items D-01 through D-20, and the end-to-end training lifecycle.</p>
+<h3 id="readiness-is-explicit"><strong>Readiness is explicit</strong></h3>
+<p>READY cases have an expected result defined by confirmed PRD rules and can run when environment and data are available. BLOCKED cases depend on one or more unapproved D-IDs. For blocked cases, the expected result identifies the required decision and deliberately avoids inventing a business rule. Approve the oracle and update readiness before execution.</p>
+<h2 id="execution-guidance"><strong>Execution guidance</strong></h2>
+<p>Every case includes test ID, requirement/rule/decision traceability, priority, readiness, scenario, preconditions/test data, steps, and expected result. P1 indicates core lifecycle, authorization, data integrity, privacy/security, or certification coverage; P2 indicates supporting coverage.</p>
+<p>Use synthetic identities and project data in a controlled non-production environment. Use least-privileged accounts for authorization checks. Do not use real teacher/student personal information or real OTPs. Record build, environment, tester, date, actual result, evidence reference, and defect ID in the team execution tracker.</p>
+<h3 id="decision-handling"><strong>Decision handling</strong></h3>
+<p>If stakeholder approval changes behavior, update the case and traceability before execution. Do not guess unresolved thresholds, permissions, upload contracts, retention periods, or override rules. A decision without an approved oracle is neither a pass nor a fail.</p>
+<p>Total detailed cases: 60. Readiness is a planning status; it does not imply implementation or a passing test.</p>
+<h1><strong>Detailed test cases</strong></h1>
+<h2 id="01-project-access-masters-and-training-plans"><strong>01 | Project, access, masters and training plans</strong></h2>
+<h3 id="tc-001-select-and-create-project-from-odoo"><strong>TC-001 | Select and create project from Odoo</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-01, FR-02 | Business rules: BR-01, BR-02 | Decisions: D-02, D-03</p>
+<p><strong>Objective / scenario</strong>  Select and create project from Odoo</p>
+<p><strong>Preconditions / test data</strong>  Odoo test project exists with approved field mapping; Admin user.</p>
+<p><strong>Steps</strong>  Open project selector; choose project; save; reopen record.</p>
+<p><strong>Expected result</strong>  Project code, name, dates and optional description persist accurately; project is linked as the ownership scope.</p>
+<h3 id="tc-002-duplicate-project-and-invalid-date-boundaries"><strong>TC-002 | Duplicate project and invalid date boundaries</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-01 | Business rules: BR-01 | Decisions: D-02, D-03</p>
+<p><strong>Objective / scenario</strong>  Duplicate project and invalid date boundaries</p>
+<p><strong>Preconditions / test data</strong>  Odoo source contains duplicate code; separate record has start date equal to or after end date.</p>
+<p><strong>Steps</strong>  Attempt to import/select and save both records.</p>
+<p><strong>Expected result</strong>  Expected reject, deduplicate, or allow behavior must be approved in D-02/D-03; no oracle is assumed.</p>
+<h3 id="tc-003-odoo-unavailable-during-project-setup"><strong>TC-003 | Odoo unavailable during project setup</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-01, FR-19 | Business rules: BR-01 | Decisions: D-02, D-19</p>
+<p><strong>Objective / scenario</strong>  Odoo unavailable during project setup</p>
+<p><strong>Preconditions / test data</strong>  Odoo project service is unavailable; authorized admin opens project setup.</p>
+<p><strong>Steps</strong>  Attempt project selection; observe response; restore service and retry.</p>
+<p><strong>Expected result</strong>  Failure and retry behavior must follow approved integration contract; no false success or orphan project may occur.</p>
+<h3 id="tc-004-project-scope-and-single-project-landing"><strong>TC-004 | Project scope and single-project landing</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-02, FR-19, FR-20 | Business rules: BR-01, BR-10 | Decisions: D-01, D-18</p>
+<p><strong>Objective / scenario</strong>  Project scope and single-project landing</p>
+<p><strong>Preconditions / test data</strong>  Schoolnet Admin, single-project admin, and user assigned only to Project A exist.</p>
+<p><strong>Steps</strong>  Open dashboards as each role; attempt Project B by direct URL, API ID, filter and export.</p>
+<p><strong>Expected result</strong>  Schoolnet Admin sees authorized cross-project data; Project A user is restricted server-side to A. Auto-selection behavior for multi-role/scope users follows D-18.</p>
+<h3 id="tc-005-trainer-pool-crud-and-assignment-history"><strong>TC-005 | Trainer pool CRUD and assignment history</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-03 | Business rules: BR-10 | Decisions: D-01</p>
+<p><strong>Objective / scenario</strong>  Trainer pool CRUD and assignment history</p>
+<p><strong>Preconditions / test data</strong>  Trainer/Admin roles; employee and consultant trainer records.</p>
+<p><strong>Steps</strong>  Create trainer with code; edit permitted attributes; inspect assignment history; attempt delete while assigned.</p>
+<p><strong>Expected result</strong>  Role rights and delete/history retention behavior follow D-01; approved actions are audited and history remains consistent.</p>
+<h3 id="tc-006-trainer-availability-boundary-and-overlap"><strong>TC-006 | Trainer availability boundary and overlap</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-04, FR-11 | Business rules: BR-06 | Decisions: D-01, D-04</p>
+<p><strong>Objective / scenario</strong>  Trainer availability boundary and overlap</p>
+<p><strong>Preconditions / test data</strong>  Availability entries include past, current, future and overlapping time ranges.</p>
+<p><strong>Steps</strong>  Create/edit/delete each range; schedule one batch in, partially overlapping and outside availability.</p>
+<p><strong>Expected result</strong>  Future-only rule, hour boundaries, overlap and override policy must be approved under D-04; scheduler detects conflicts.</p>
+<h3 id="tc-007-national-and-state-holiday-scheduling"><strong>TC-007 | National and state holiday scheduling</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-05, FR-11 | Business rules: BR-06 | Decisions: D-04</p>
+<p><strong>Objective / scenario</strong>  National and state holiday scheduling</p>
+<p><strong>Preconditions / test data</strong>  National holiday and state-specific holiday are configured; batches are in affected and unaffected states.</p>
+<p><strong>Steps</strong>  Upload/edit batches on each date for both states.</p>
+<p><strong>Expected result</strong>  Applicable holidays are identified; block/override and calendar ownership behavior follows D-04.</p>
+<h3 id="tc-008-create-project-linked-plan-and-generated-code"><strong>TC-008 | Create project-linked plan and generated code</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-06 | Business rules: BR-02, BR-03 | Decisions: D-01, D-05</p>
+<p><strong>Objective / scenario</strong>  Create project-linked plan and generated code</p>
+<p><strong>Preconditions / test data</strong>  Authorized admin; project and approved plan type available.</p>
+<p><strong>Steps</strong>  Create plan with name, type, description and duration; save; create another plan.</p>
+<p><strong>Expected result</strong>  Plan is linked to project and receives a system-generated unique code; types, duration limits and rights follow D-05.</p>
+<h3 id="tc-009-plan-code-uniqueness-and-new-plan-type"><strong>TC-009 | Plan code uniqueness and new plan type</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-06 | Business rules: BR-03 | Decisions: D-05</p>
+<p><strong>Objective / scenario</strong>  Plan code uniqueness and new plan type</p>
+<p><strong>Preconditions / test data</strong>  Existing plan code; user requests Add New type; boundary duration inputs.</p>
+<p><strong>Steps</strong>  Attempt duplicate code if editable; add type; submit zero, negative, fractional and maximum duration.</p>
+<p><strong>Expected result</strong>  Code generation/uniqueness scope, Add New authorization and duration range follow D-05; invalid values cannot corrupt data.</p>
+<h3 id="tc-010-assign-multiple-day-resources-and-forms"><strong>TC-010 | Assign multiple day resources and forms</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-07 | Business rules: BR-04 | Decisions: D-05, D-06</p>
+<p><strong>Objective / scenario</strong>  Assign multiple day resources and forms</p>
+<p><strong>Preconditions / test data</strong>  Plan duration is approved; pre-assessment, daily content, feedback and post-assessment exist.</p>
+<p><strong>Steps</strong>  Assign one or more items to first, middle and last valid days; save and reopen plan.</p>
+<p><strong>Expected result</strong>  Assignments persist to correct days and types; all allowed form roles and resource references resolve.</p>
+<h3 id="tc-011-reject-day-outside-plan-duration"><strong>TC-011 | Reject day outside plan duration</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-07 | Business rules: BR-04 | Decisions: D-05</p>
+<p><strong>Objective / scenario</strong>  Reject day outside plan duration</p>
+<p><strong>Preconditions / test data</strong>  Plan duration N; test day 0, N+1 and a valid day N.</p>
+<p><strong>Steps</strong>  Assign resources/forms to each boundary; save.</p>
+<p><strong>Expected result</strong>  Day N is accepted; day 0 and N+1 are rejected; existing valid assignments remain unchanged.</p>
+<h3 id="tc-012-common-project-repository-permissions-and-file-validation"><strong>TC-012 | Common/project repository permissions and file validation</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-08, FR-25 | Business rules: BR-10 | Decisions: D-01, D-06, D-17</p>
+<p><strong>Objective / scenario</strong>  Common/project repository permissions and file validation</p>
+<p><strong>Preconditions / test data</strong>  Trainer, admin, unauthorized user; allowed and disallowed sample files per approved contract.</p>
+<p><strong>Steps</strong>  Upload to project repository; promote to common repository; attempt prohibited format/content and unauthorized promotion.</p>
+<p><strong>Expected result</strong>  Repository scope, approval rights, file types, size and scanning contract follow D-06/D-17; unauthorized actions are denied.</p>
+<h3 id="tc-013-day-based-resource-availability-and-expiry"><strong>TC-013 | Day-based resource availability and expiry</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-09 | Business rules: BR-04 | Decisions: D-11</p>
+<p><strong>Objective / scenario</strong>  Day-based resource availability and expiry</p>
+<p><strong>Preconditions / test data</strong>  Trainee is in a batch using a plan with day-linked content; access before, on and after assigned day.</p>
+<p><strong>Steps</strong>  Request resource through UI and direct URL at each point.</p>
+<p><strong>Expected result</strong>  Eligibility and expiry behavior follow D-11; cross-project and unlinked access remains denied.</p>
+<h3 id="tc-014-resource-edit-removal-after-plan-use"><strong>TC-014 | Resource edit/removal after plan use</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-09, FR-08 | Business rules: BR-04 | Decisions: D-11</p>
+<p><strong>Objective / scenario</strong>  Resource edit/removal after plan use</p>
+<p><strong>Preconditions / test data</strong>  Resource linked to plan already used by active and completed batches.</p>
+<p><strong>Steps</strong>  Edit metadata/content; remove link; request resource as each batch cohort.</p>
+<p><strong>Expected result</strong>  Version propagation and post-project access behavior follow D-11; historical records remain traceable.</p>
+<h2 id="02-batch-setup-uploads-and-registration"><strong>02 | Batch setup, uploads and registration</strong></h2>
+<h3 id="tc-015-valid-batch-spreadsheet-import"><strong>TC-015 | Valid batch spreadsheet import</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-10, FR-11, FR-25 | Business rules: BR-02, BR-05 | Decisions: D-03, D-06, D-07</p>
+<p><strong>Objective / scenario</strong>  Valid batch spreadsheet import</p>
+<p><strong>Preconditions / test data</strong>  Approved template and valid project, plan, school/UDISE, state, district, dates, capacity and trainer references.</p>
+<p><strong>Steps</strong>  Upload workbook; inspect created batch, dates, unique ID and list view.</p>
+<p><strong>Expected result</strong>  Rows persist accurately and link to correct project/plan; exact columns, formats and batch ID supply rules follow approved contract.</p>
+<h3 id="tc-016-batch-file-column-row-and-reference-errors"><strong>TC-016 | Batch file, column, row and reference errors</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-10, FR-11, FR-25 | Business rules: BR-05, BR-06 | Decisions: D-03, D-04, D-06</p>
+<p><strong>Objective / scenario</strong>  Batch file, column, row and reference errors</p>
+<p><strong>Preconditions / test data</strong>  Test unsupported extension, malformed headers, missing fields, invalid IDs/dates and mixed valid/invalid rows.</p>
+<p><strong>Steps</strong>  Upload each fixture; inspect errors and stored records; retry corrected file.</p>
+<p><strong>Expected result</strong>  Server validates file and fields; row-level versus whole-file rejection, partial save and retry contract follows D-06.</p>
+<h3 id="tc-017-batch-date-and-plan-duration-boundaries"><strong>TC-017 | Batch date and plan duration boundaries</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-10, FR-11 | Business rules: BR-05 | Decisions: D-03, D-05</p>
+<p><strong>Objective / scenario</strong>  Batch date and plan duration boundaries</p>
+<p><strong>Preconditions / test data</strong>  Project dates and plan duration known; batch starts before/on/after project bounds; end date varies from computed duration.</p>
+<p><strong>Steps</strong>  Upload each date variant including leap day and boundary.</p>
+<p><strong>Expected result</strong>  Out-of-project dates are rejected; end-date calculation, inclusive bounds, calendar and timezone follow D-03/D-05.</p>
+<h3 id="tc-018-capacity-changes-with-existing-registrations"><strong>TC-018 | Capacity changes with existing registrations</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-10, FR-11, FR-14 | Business rules: BR-05, BR-07 | Decisions: D-03, D-07</p>
+<p><strong>Objective / scenario</strong>  Capacity changes with existing registrations</p>
+<p><strong>Preconditions / test data</strong>  Batch has enrolled participants; proposed capacity is above, equal to and below current count.</p>
+<p><strong>Steps</strong>  Edit capacity and save; inspect roster and batch status.</p>
+<p><strong>Expected result</strong>  Capacity cannot be violated; whether lowering below enrollment is blocked or grandfathered follows D-07.</p>
+<h3 id="tc-019-batch-list-edit-delete-and-lifecycle-restrictions"><strong>TC-019 | Batch list edit/delete and lifecycle restrictions</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-12 | Business rules: BR-10 | Decisions: D-01, D-09</p>
+<p><strong>Objective / scenario</strong>  Batch list edit/delete and lifecycle restrictions</p>
+<p><strong>Preconditions / test data</strong>  Users with different roles; batch in future, in progress, completed and cancelled.</p>
+<p><strong>Steps</strong>  Open list; attempt edit/delete on each state; inspect audit.</p>
+<p><strong>Expected result</strong>  Visible actions and lifecycle restrictions follow D-01/D-09; successful changes are audited; unauthorized mutations are denied.</p>
+<h3 id="tc-020-open-and-closed-batch-registration-toggle"><strong>TC-020 | Open and closed batch registration toggle</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-14 | Business rules: BR-07 | Decisions: D-01, D-07, D-08</p>
+<p><strong>Objective / scenario</strong>  Open and closed batch registration toggle</p>
+<p><strong>Preconditions / test data</strong>  Batch has open registration off/on; candidate uses correct and stale links.</p>
+<p><strong>Steps</strong>  Attempt registration in each state; close registration as authorized trainer/admin; retry link.</p>
+<p><strong>Expected result</strong>  Registration only available when open; close action takes effect; reopen/late request semantics follow D-08.</p>
+<h3 id="tc-021-registration-window-start-end-and-timezone"><strong>TC-021 | Registration window start, end and timezone</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-14 | Business rules: BR-07 | Decisions: D-07, D-08</p>
+<p><strong>Objective / scenario</strong>  Registration window start, end and timezone</p>
+<p><strong>Preconditions / test data</strong>  Open batch with approved dates; candidate submits at boundaries and after window.</p>
+<p><strong>Steps</strong>  Register before, at opening, at cutoff and after cutoff in relevant timezone.</p>
+<p><strong>Expected result</strong>  Window timing, Day 1 rule, cutoff and timezone follow D-08; no boundary assumption is encoded.</p>
+<h3 id="tc-022-capacity-under-concurrent-registration"><strong>TC-022 | Capacity under concurrent registration</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-14 | Business rules: BR-07 | Decisions: D-07, D-08</p>
+<p><strong>Objective / scenario</strong>  Capacity under concurrent registration</p>
+<p><strong>Preconditions / test data</strong>  Batch has one seat remaining; two valid candidates submit concurrently.</p>
+<p><strong>Steps</strong>  Submit both registrations at the same time; inspect roster and audit.</p>
+<p><strong>Expected result</strong>  At most one registration takes final seat; roster count never exceeds capacity; rejected candidate sees safe outcome.</p>
+<h3 id="tc-023-trainee-id-lookup-and-otp-success-failure"><strong>TC-023 | Trainee ID lookup and OTP success/failure</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-15 | Business rules: BR-07 | Decisions: D-07, D-16</p>
+<p><strong>Objective / scenario</strong>  Trainee ID lookup and OTP success/failure</p>
+<p><strong>Preconditions / test data</strong>  Candidate identity data; valid, wrong, expired, resent and exhausted OTP scenarios.</p>
+<p><strong>Steps</strong>  Lookup using approved mobile/email; verify valid OTP; repeat for invalid/expired and retry boundaries.</p>
+<p><strong>Expected result</strong>  Identity match, channel, expiry, retries, resend and messages follow D-16; no record is enrolled before required verification.</p>
+<h3 id="tc-024-duplicate-cross-batch-and-re-enrollment-attempts"><strong>TC-024 | Duplicate, cross-batch and re-enrollment attempts</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-14, FR-15 | Business rules: BR-07, BR-08 | Decisions: D-07, D-08, D-09</p>
+<p><strong>Objective / scenario</strong>  Duplicate, cross-batch and re-enrollment attempts</p>
+<p><strong>Preconditions / test data</strong>  Same candidate has existing registration in same and another batch; batch has unrelated registration link.</p>
+<p><strong>Steps</strong>  Submit duplicate registration and cross-batch enrollment; test after closure.</p>
+<p><strong>Expected result</strong>  Identity matching, duplicate prevention, re-enrollment and post-closure behavior follow D-07/D-08; records cannot cross-link silently.</p>
+<h3 id="tc-025-trainer-admin-roster-upload-and-approval-workflow"><strong>TC-025 | Trainer/admin roster upload and approval workflow</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-13, FR-14 | Business rules: BR-07, BR-08 | Decisions: D-01, D-06, D-09</p>
+<p><strong>Objective / scenario</strong>  Trainer/admin roster upload and approval workflow</p>
+<p><strong>Preconditions / test data</strong>  Open registration enabled; authorized upload; roster contains valid, duplicate and invalid rows.</p>
+<p><strong>Steps</strong>  Upload roster; inspect row errors; trainer reviews, approves/rejects; attempt final closure.</p>
+<p><strong>Expected result</strong>  Upload remains available with open registration; approval, partial roster decision, correction and closure/reopen rules follow D-06/D-09.</p>
+<h2 id="03-attendance-progress-and-certification"><strong>03 | Attendance, progress and certification</strong></h2>
+<h3 id="tc-026-attendance-present-absent-for-today-and-past-day"><strong>TC-026 | Attendance present/absent for today and past day</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-16 | Business rules: BR-09 | Decisions: D-01, D-10</p>
+<p><strong>Objective / scenario</strong>  Attendance present/absent for today and past day</p>
+<p><strong>Preconditions / test data</strong>  Assigned trainer; batch dates include today and earlier day; enrolled trainee.</p>
+<p><strong>Steps</strong>  Record PRESENT and ABSENT for both dates; reopen attendance and inspect MIS.</p>
+<p><strong>Expected result</strong>  Only PRESENT/ABSENT values persist against correct trainee, batch and date; permitted reports reconcile.</p>
+<h3 id="tc-027-block-future-attendance-and-unauthorized-entry"><strong>TC-027 | Block future attendance and unauthorized entry</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-16 | Business rules: BR-09 | Decisions: D-01, D-10</p>
+<p><strong>Objective / scenario</strong>  Block future attendance and unauthorized entry</p>
+<p><strong>Preconditions / test data</strong>  Future batch day; unassigned trainer and trainee accounts.</p>
+<p><strong>Steps</strong>  Attempt future attendance via UI/API and past/today update by unassigned roles.</p>
+<p><strong>Expected result</strong>  Future date and unauthorized actions are denied server-side with no mutation.</p>
+<h3 id="tc-028-attendance-correction-duplicate-save-and-audit"><strong>TC-028 | Attendance correction, duplicate save and audit</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-16, FR-24 | Business rules: BR-09, BR-10 | Decisions: D-10</p>
+<p><strong>Objective / scenario</strong>  Attendance correction, duplicate save and audit</p>
+<p><strong>Preconditions / test data</strong>  Attendance exists for prior day; trainer submits correction twice; admin attempts correction.</p>
+<p><strong>Steps</strong>  Edit value; repeat request; inspect record history and audit old/new safe representation.</p>
+<p><strong>Expected result</strong>  Correction authority, cutoff, approval and duplicate-submit behavior follow D-10; every approved change is auditable.</p>
+<h3 id="tc-029-progress-status-transitions-across-training-journey"><strong>TC-029 | Progress status transitions across training journey</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-17, FR-19 | Business rules: BR-12 | Decisions: D-12, D-14</p>
+<p><strong>Objective / scenario</strong>  Progress status transitions across training journey</p>
+<p><strong>Preconditions / test data</strong>  Trainees at registered, approved, started, assessment and completion states; approved rule set pending.</p>
+<p><strong>Steps</strong>  Advance each through events; inspect trainee and batch status displays.</p>
+<p><strong>Expected result</strong>  Allowed transitions and computed/manual status ownership follow D-12/D-14; status does not imply completion prematurely.</p>
+<h3 id="tc-030-completion-formula-permutations"><strong>TC-030 | Completion formula permutations</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-17, FR-21 | Business rules: BR-12 | Decisions: D-12, D-14</p>
+<p><strong>Objective / scenario</strong>  Completion formula permutations</p>
+<p><strong>Preconditions / test data</strong>  Test missing day, attendance below/at threshold, assessment incomplete/fail/pass, feedback missing, dropped trainee.</p>
+<p><strong>Steps</strong>  Compute completion for every permutation after rules are approved.</p>
+<p><strong>Expected result</strong>  Required days, threshold inclusivity, assessment/feedback requirements, exclusions and exceptions follow D-12; no guessed eligibility.</p>
+<h3 id="tc-031-certificate-eligibility-gate"><strong>TC-031 | Certificate eligibility gate</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-18 | Business rules: BR-12 | Decisions: D-13</p>
+<p><strong>Objective / scenario</strong>  Certificate eligibility gate</p>
+<p><strong>Preconditions / test data</strong>  Candidate meets all known steps except one unresolved criterion; second candidate is fully eligible under signed rules.</p>
+<p><strong>Steps</strong>  Request generation for both; inspect decision and audit.</p>
+<p><strong>Expected result</strong>  Certificate is only issued according to approved eligibility and authority; issuance trigger and missing-rule outcomes follow D-13.</p>
+<h3 id="tc-032-certificate-template-content-and-rendering"><strong>TC-032 | Certificate template content and rendering</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-18 | Business rules: BR-10, BR-12 | Decisions: D-13, D-15</p>
+<p><strong>Objective / scenario</strong>  Certificate template content and rendering</p>
+<p><strong>Preconditions / test data</strong>  Approved template, logo, colors, signatory and eligible trainee record with PI name.</p>
+<p><strong>Steps</strong>  Generate certificate; inspect fields, numbering, page layout, access and download.</p>
+<p><strong>Expected result</strong>  Approved name, project/program, training, duration, completion date, number and signatory display accurately; numbering/name handling follow D-13/D-15.</p>
+<h3 id="tc-033-certificate-correction-reissue-and-revocation"><strong>TC-033 | Certificate correction, reissue and revocation</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-18, FR-24 | Business rules: BR-10, BR-12 | Decisions: D-13, D-15</p>
+<p><strong>Objective / scenario</strong>  Certificate correction, reissue and revocation</p>
+<p><strong>Preconditions / test data</strong>  Existing certificate; source trainee name or completion data corrected.</p>
+<p><strong>Steps</strong>  Change approved source data; request reissue/revocation; inspect old/new artifact and audit.</p>
+<p><strong>Expected result</strong>  Correction, revocation, numbering and template version behavior follow D-13; sensitive data remains protected.</p>
+<h2 id="04-dashboards-mis-privacy-and-audit"><strong>04 | Dashboards, MIS, privacy and audit</strong></h2>
+<h3 id="tc-034-role-dashboard-contents-and-permitted-actions"><strong>TC-034 | Role dashboard contents and permitted actions</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-19 | Business rules: BR-01 | Decisions: D-01, D-14</p>
+<p><strong>Objective / scenario</strong>  Role dashboard contents and permitted actions</p>
+<p><strong>Preconditions / test data</strong>  Accounts for central, ERNET/Sponsor, state, school, trainer and trainee roles with scoped fixtures.</p>
+<p><strong>Steps</strong>  Sign in as each role; compare visible metrics, tasks, links and actions to approved matrix.</p>
+<p><strong>Expected result</strong>  Only role-appropriate views/actions appear; role naming and specific KPI definitions follow D-01/D-14.</p>
+<h3 id="tc-035-dashboard-scope-filters-and-direct-access"><strong>TC-035 | Dashboard scope filters and direct access</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-19, FR-20 | Business rules: BR-01, BR-10 | Decisions: D-01, D-14, D-18</p>
+<p><strong>Objective / scenario</strong>  Dashboard scope filters and direct access</p>
+<p><strong>Preconditions / test data</strong>  Users assigned to different projects/states/schools/batches; data with distinct identifiers.</p>
+<p><strong>Steps</strong>  Filter dashboard; alter request IDs; compare UI aggregates with authorized records.</p>
+<p><strong>Expected result</strong>  Screen and aggregate results are limited to authorized scope; project switching follows approved D-18.</p>
+<h3 id="tc-036-common-mis-coverage-and-exception-indicators"><strong>TC-036 | Common MIS coverage and exception indicators</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-20, FR-21, FR-29 | Business rules: BR-10 | Decisions: D-14</p>
+<p><strong>Objective / scenario</strong>  Common MIS coverage and exception indicators</p>
+<p><strong>Preconditions / test data</strong>  Fixture data for low attendance/registration, pending forms, trainer conflicts, capacity and delays.</p>
+<p><strong>Steps</strong>  Run each MIS view and exception filter; inspect count, labels and drill-through.</p>
+<p><strong>Expected result</strong>  Required MIS topics appear; metric definitions, thresholds, refresh timing and exception rules follow D-14.</p>
+<h3 id="tc-037-mis-filtering-reconciliation-and-refresh"><strong>TC-037 | MIS filtering, reconciliation and refresh</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-20, FR-21 | Business rules: BR-10 | Decisions: D-14</p>
+<p><strong>Objective / scenario</strong>  MIS filtering, reconciliation and refresh</p>
+<p><strong>Preconditions / test data</strong>  Known underlying records across projects, status, geography, plans, batches, trainer and date.</p>
+<p><strong>Steps</strong>  Apply each approved filter; reconcile row sets/counts; repeat after source update.</p>
+<p><strong>Expected result</strong>  Filters compose correctly; counts and freshness match approved definitions; no scope leakage.</p>
+<h3 id="tc-038-mis-exports-across-formats-and-roles"><strong>TC-038 | MIS exports across formats and roles</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-20, FR-22 | Business rules: BR-10, BR-11 | Decisions: D-14, D-15</p>
+<p><strong>Objective / scenario</strong>  MIS exports across formats and roles</p>
+<p><strong>Preconditions / test data</strong>  Approved export permissions; records include masked and sensitive values.</p>
+<p><strong>Steps</strong>  Export Excel, CSV and PDF; compare with same screen filters and another role scope.</p>
+<p><strong>Expected result</strong>  Supported formats, field set, masking and row scope match approved policy D-14/D-15; file does not leak hidden data.</p>
+<h3 id="tc-039-personal-information-masking-and-authorized-clear-name-contexts"><strong>TC-039 | Personal information masking and authorized clear-name contexts</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-22, FR-26 | Business rules: BR-11 | Decisions: D-15, D-17</p>
+<p><strong>Objective / scenario</strong>  Personal information masking and authorized clear-name contexts</p>
+<p><strong>Preconditions / test data</strong>  PI test values in dashboards, MIS, downloads, audit and certificate; roles with distinct access.</p>
+<p><strong>Steps</strong>  Inspect screen, export, audit and certificate as each role; search files for raw values.</p>
+<p><strong>Expected result</strong>  Approved PI fields are consistently masked except explicitly approved contexts such as final certificate name; exact fields and rules follow D-15.</p>
+<h3 id="tc-040-login-resource-access-and-otp-activity-reports"><strong>TC-040 | Login, resource access and OTP activity reports</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-21, FR-30 | Business rules: BR-10 | Decisions: D-14, D-15, D-16</p>
+<p><strong>Objective / scenario</strong>  Login, resource access and OTP activity reports</p>
+<p><strong>Preconditions / test data</strong>  User/resource/OTP events generated for scoped accounts.</p>
+<p><strong>Steps</strong>  Generate accesses, logins, failed logins and OTP events; inspect report filters, retention and sensitive fields.</p>
+<p><strong>Expected result</strong>  Required activity is recorded only as approved; report scope, retention and masking follow D-14/D-15/D-16.</p>
+<h3 id="tc-041-user-role-access-admin-and-effective-revocation"><strong>TC-041 | User/role/access admin and effective revocation</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-23 | Business rules: BR-01, BR-10 | Decisions: D-01, D-18</p>
+<p><strong>Objective / scenario</strong>  User/role/access admin and effective revocation</p>
+<p><strong>Preconditions / test data</strong>  Admin, project admin and user with access to Project A; user also has multi-project assignment.</p>
+<p><strong>Steps</strong>  Grant and revoke role/scope; retry previously permitted action using current session and direct API.</p>
+<p><strong>Expected result</strong>  Only authorized admin can change access; revocation effect, multi-project switch and audit follow D-01/D-18.</p>
+<h3 id="tc-042-audit-important-changes-and-protect-sensitive-values"><strong>TC-042 | Audit important changes and protect sensitive values</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-24 | Business rules: BR-10, BR-11 | Decisions: D-01, D-10, D-14, D-15</p>
+<p><strong>Objective / scenario</strong>  Audit important changes and protect sensitive values</p>
+<p><strong>Preconditions / test data</strong>  Change profile, permissions, roster, attendance and batch fields with authorized actors.</p>
+<p><strong>Steps</strong>  Perform changes; review audit UI/export as permitted and unauthorized role.</p>
+<p><strong>Expected result</strong>  Actor/time/action and approved safe before/after details are present; restricted data is masked; audit scope/retention follows decisions.</p>
+<h2 id="05-validation-security-and-dependencies"><strong>05 | Validation, security and dependencies</strong></h2>
+<h3 id="tc-043-server-side-validation-and-file-extension-bypass"><strong>TC-043 | Server-side validation and file extension bypass</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>READY</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-25 | Business rules: BR-10 | Decisions: D-06, D-17</p>
+<p><strong>Objective / scenario</strong>  Server-side validation and file extension bypass</p>
+<p><strong>Preconditions / test data</strong>  Invalid input payloads and prohibited file types; client validation bypass path available.</p>
+<p><strong>Steps</strong>  Submit directly to server endpoints and upload route; inspect response and stored state.</p>
+<p><strong>Expected result</strong>  Server rejects invalid values/files independently of client; no partial corrupt persistence or sensitive stack details.</p>
+<h3 id="tc-044-file-content-size-and-malware-validation"><strong>TC-044 | File content, size and malware validation</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-25 | Business rules: BR-10 | Decisions: D-06, D-17</p>
+<p><strong>Objective / scenario</strong>  File content, size and malware validation</p>
+<p><strong>Preconditions / test data</strong>  Test approved/unsupported extensions, mismatched MIME/content, boundary sizes and malware fixture per approved test protocol.</p>
+<p><strong>Steps</strong>  Upload each case using UI and direct request.</p>
+<p><strong>Expected result</strong>  Allowlist, size/content checks, scanning and partial failure behavior follow D-06/D-17.</p>
+<h3 id="tc-045-credential-transport-storage-encryption-and-secrets-handling"><strong>TC-045 | Credential transport, storage encryption and secrets handling</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-26 | Business rules: BR-11 | Decisions: D-15, D-17</p>
+<p><strong>Objective / scenario</strong>  Credential transport, storage encryption and secrets handling</p>
+<p><strong>Preconditions / test data</strong>  Security test environment, approved architecture and representative credentials/PI.</p>
+<p><strong>Steps</strong>  Inspect transport configuration, database encryption evidence, logs and certificate data path.</p>
+<p><strong>Expected result</strong>  Controls match approved security design; no clear credentials or unauthorized PI appear in transit/storage/logs; evidence criteria follow D-17.</p>
+<h3 id="tc-046-repeated-login-failures-and-15-minute-cool-off"><strong>TC-046 | Repeated login failures and 15-minute cool-off</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-27 | Business rules: BR-10 | Decisions: D-16</p>
+<p><strong>Objective / scenario</strong>  Repeated login failures and 15-minute cool-off</p>
+<p><strong>Preconditions / test data</strong>  Test accounts with clean state; configured failure threshold not yet approved.</p>
+<p><strong>Steps</strong>  Submit failures around threshold; verify lockout duration, recovery and reset; repeat across session/client.</p>
+<p><strong>Expected result</strong>  Cool-off lasts 15 minutes once approved trigger is reached; threshold, scope, reset and recovery follow D-16.</p>
+<h3 id="tc-047-otp-expiry-retries-resend-and-failure-recovery"><strong>TC-047 | OTP expiry, retries, resend and failure recovery</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-28 | Business rules: BR-10 | Decisions: D-16</p>
+<p><strong>Objective / scenario</strong>  OTP expiry, retries, resend and failure recovery</p>
+<p><strong>Preconditions / test data</strong>  OTP service test endpoint; approved configuration pending.</p>
+<p><strong>Steps</strong>  Issue OTP; verify before/at/after expiry; test retries, resends, delivery delay and provider outage.</p>
+<p><strong>Expected result</strong>  Expiry in minutes and all retry/message/recovery behavior follow D-16; expired OTP cannot verify identity.</p>
+<h3 id="tc-048-exception-thresholds-and-false-positive-checks"><strong>TC-048 | Exception thresholds and false-positive checks</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-29 | Business rules: BR-10, BR-12 | Decisions: D-12, D-14</p>
+<p><strong>Objective / scenario</strong>  Exception thresholds and false-positive checks</p>
+<p><strong>Preconditions / test data</strong>  Fixtures at below, exactly at and above each approved threshold.</p>
+<p><strong>Steps</strong>  Run dashboard/MIS exception calculations; alter input data and refresh.</p>
+<p><strong>Expected result</strong>  Indicators follow signed thresholds/formulas and reconcile to records; thresholds are not assumed before D-14 approval.</p>
+<h3 id="tc-049-activity-tracking-minimization-access-control-and-retention"><strong>TC-049 | Activity tracking minimization, access control and retention</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-30, FR-24 | Business rules: BR-10, BR-11 | Decisions: D-14, D-15, D-16</p>
+<p><strong>Objective / scenario</strong>  Activity tracking minimization, access control and retention</p>
+<p><strong>Preconditions / test data</strong>  Events for login, failed attempt, OTP and resource access; roles with report/no-report rights.</p>
+<p><strong>Steps</strong>  Generate events; inspect audit/report visibility, masking, retention and deletion behavior.</p>
+<p><strong>Expected result</strong>  Only approved events are tracked; access, fields and retention satisfy D-14/D-15/D-16 without secrets.</p>
+<h3 id="tc-050-save-upload-dependency-failure-and-retry-integrity"><strong>TC-050 | Save/upload dependency failure and retry integrity</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-11, FR-19, FR-20, FR-25 | Business rules: BR-10 | Decisions: D-06, D-19</p>
+<p><strong>Objective / scenario</strong>  Save/upload dependency failure and retry integrity</p>
+<p><strong>Preconditions / test data</strong>  Inject transient storage/persistence failure during batch upload and record save.</p>
+<p><strong>Steps</strong>  Submit operation; simulate failure; restore; retry once; compare records and messages.</p>
+<p><strong>Expected result</strong>  No false success or duplicate rows; failure/recovery text, retry/idempotency and partial-save behavior follow D-06/D-19.</p>
+<h3 id="tc-051-otp-provider-unavailable-and-safe-user-recovery"><strong>TC-051 | OTP provider unavailable and safe user recovery</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-15, FR-28, FR-30 | Business rules: BR-10, BR-11 | Decisions: D-16, D-19</p>
+<p><strong>Objective / scenario</strong>  OTP provider unavailable and safe user recovery</p>
+<p><strong>Preconditions / test data</strong>  OTP dependency returns timeout, delivery failure and recovery.</p>
+<p><strong>Steps</strong>  Request OTP and complete registration attempt during each fault; restore dependency.</p>
+<p><strong>Expected result</strong>  No unverified enrollment; messaging/retry behavior follows D-16/D-19; logs protect contact and OTP values.</p>
+<h3 id="tc-052-odoo-outage-and-integration-error-handling"><strong>TC-052 | Odoo outage and integration error handling</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-01, FR-20, FR-25 | Business rules: BR-10 | Decisions: D-02, D-17, D-19</p>
+<p><strong>Objective / scenario</strong>  Odoo outage and integration error handling</p>
+<p><strong>Preconditions / test data</strong>  Odoo returns timeout, malformed record or authorization error.</p>
+<p><strong>Steps</strong>  Load selector and submit operation under each response; retry after recovery.</p>
+<p><strong>Expected result</strong>  No invalid project is created; outage, stale data and recovery behavior follow approved D-02/D-19 contract.</p>
+<h3 id="tc-053-trainer-conflict-and-holiday-indicators-reconcile"><strong>TC-053 | Trainer conflict and holiday indicators reconcile</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-04, FR-05, FR-11, FR-29 | Business rules: BR-06 | Decisions: D-04, D-14</p>
+<p><strong>Objective / scenario</strong>  Trainer conflict and holiday indicators reconcile</p>
+<p><strong>Preconditions / test data</strong>  Conflicting trainer schedule and applicable holiday with batches in report range.</p>
+<p><strong>Steps</strong>  Attempt schedule; run exception dashboard and export.</p>
+<p><strong>Expected result</strong>  Conflict detection and override follow D-04; report indicator/filter follows D-14 and matches source schedule.</p>
+<h3 id="tc-054-completion-certification-and-mis-end-to-end-reconciliation"><strong>TC-054 | Completion, certification and MIS end-to-end reconciliation</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-17, FR-18, FR-21 | Business rules: BR-12 | Decisions: D-12, D-13, D-14</p>
+<p><strong>Objective / scenario</strong>  Completion, certification and MIS end-to-end reconciliation</p>
+<p><strong>Preconditions / test data</strong>  Approved completion and certificate rules; eligible and ineligible trainees.</p>
+<p><strong>Steps</strong>  Complete training events; calculate statuses; issue eligible certificates; compare dashboards and MIS.</p>
+<p><strong>Expected result</strong>  Statuses, eligible certificates and report totals agree with approved rules; no certificate without eligibility.</p>
+<h3 id="tc-055-master-data-ownership-and-crud-authorization-matrix"><strong>TC-055 | Master-data ownership and CRUD authorization matrix</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-03, FR-06, FR-08, FR-10, FR-13, FR-23 | Business rules: BR-01, BR-02 | Decisions: D-01, D-05, D-06, D-07</p>
+<p><strong>Objective / scenario</strong>  Master-data ownership and CRUD authorization matrix</p>
+<p><strong>Preconditions / test data</strong>  Role matrix and fixture records for project, trainer, type, school, holiday, resources and forms.</p>
+<p><strong>Steps</strong>  As each role, create/edit/delete each master; repeat without permission and through API.</p>
+<p><strong>Expected result</strong>  Allowed actions and ownership follow approved D-01/D-05/D-06/D-07; unauthorized calls are denied and logged.</p>
+<h3 id="tc-056-cross-role-and-cross-scope-authorization-matrix"><strong>TC-056 | Cross-role and cross-scope authorization matrix</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-02, FR-19, FR-20, FR-21, FR-23, FR-24 | Business rules: BR-01, BR-10 | Decisions: D-01, D-14, D-18</p>
+<p><strong>Objective / scenario</strong>  Cross-role and cross-scope authorization matrix</p>
+<p><strong>Preconditions / test data</strong>  Seed projects A/B, states, schools, batches, trainers and trainees; role test accounts.</p>
+<p><strong>Steps</strong>  For list, detail, mutation, dashboard, MIS, export and audit endpoints test allowed and denied scope combinations.</p>
+<p><strong>Expected result</strong>  Every view/action enforces role and scope consistently server-side; no identifier manipulation yields unauthorized data.</p>
+<h3 id="tc-057-data-integrity-duplicate-submission-and-upload-retry"><strong>TC-057 | Data integrity, duplicate submission and upload retry</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-10, FR-11, FR-13, FR-25 | Business rules: BR-05, BR-07 | Decisions: D-03, D-06, D-07</p>
+<p><strong>Objective / scenario</strong>  Data integrity, duplicate submission and upload retry</p>
+<p><strong>Preconditions / test data</strong>  Valid workbook submitted twice; network timeout after server commit; referential values changed during upload.</p>
+<p><strong>Steps</strong>  Submit/retry and inspect counts, foreign keys and resulting errors.</p>
+<p><strong>Expected result</strong>  No duplicate or orphan records; idempotency and transaction/partial-save semantics follow D-06/D-07.</p>
+<h3 id="tc-058-dashboard-and-mis-nonfunctional-limits"><strong>TC-058 | Dashboard and MIS nonfunctional limits</strong></h3>
+<p><strong>Priority: </strong>P2<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-19, FR-20, FR-21, FR-29, FR-30 | Business rules: BR-10 | Decisions: D-14, D-20</p>
+<p><strong>Objective / scenario</strong>  Dashboard and MIS nonfunctional limits</p>
+<p><strong>Preconditions / test data</strong>  Approved browser/device, data volume, concurrency and response targets pending.</p>
+<p><strong>Steps</strong>  Exercise representative dashboard, filters, exports and activity reports at agreed load and accessibility checks.</p>
+<p><strong>Expected result</strong>  Performance, browser/device, accessibility, availability and report limits meet targets only after D-20 sign-off.</p>
+<h3 id="tc-059-security-and-privacy-stakeholder-acceptance-gate"><strong>TC-059 | Security and privacy stakeholder acceptance gate</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-24, FR-26, FR-27, FR-28, FR-30 | Business rules: BR-10, BR-11 | Decisions: D-15, D-16, D-17</p>
+<p><strong>Objective / scenario</strong>  Security and privacy stakeholder acceptance gate</p>
+<p><strong>Preconditions / test data</strong>  Security owner has approved data inventory, threat controls, retention and test evidence.</p>
+<p><strong>Steps</strong>  Review role bypass, masking, encryption, login/OTP controls, audit exposure and retention evidence.</p>
+<p><strong>Expected result</strong>  All approved security/privacy controls pass; ambiguous clear URL, secrets/audit handling and architecture must be resolved under D-15/D-16/D-17.</p>
+<h3 id="tc-060-stakeholder-decision-closure-and-uat-readiness"><strong>TC-060 | Stakeholder decision closure and UAT readiness</strong></h3>
+<p><strong>Priority: </strong>P1<strong>Readiness: </strong><strong>BLOCKED</strong></p>
+<p><strong>Traceability</strong>  Requirements: FR-01 through FR-30 | Business rules: BR-01 through BR-12 | Decisions: D-01 through D-20</p>
+<p><strong>Objective / scenario</strong>  Stakeholder decision closure and UAT readiness</p>
+<p><strong>Preconditions / test data</strong>  PRD decision register reviewed by business, technical, security and operations owners.</p>
+<p><strong>Steps</strong>  For each D-ID record approved rule/version/owner; map to expected result; rerun affected cases; obtain sign-offs.</p>
+<p><strong>Expected result</strong>  No decision-gated test is marked executable until its oracle is approved; all functional requirements have linked passing evidence before UAT exit.</p>
+<h2 id="appendix-a-functional-requirement-coverage"><strong>Appendix A | Functional requirement coverage</strong></h2>
+<p><strong>FR-01</strong>  TC-001, TC-002, TC-003, TC-052</p>
+<p><strong>FR-02</strong>  TC-001, TC-004, TC-056</p>
+<p><strong>FR-03</strong>  TC-005, TC-055</p>
+<p><strong>FR-04</strong>  TC-006, TC-053</p>
+<p><strong>FR-05</strong>  TC-007, TC-053</p>
+<p><strong>FR-06</strong>  TC-008, TC-009, TC-055</p>
+<p><strong>FR-07</strong>  TC-010, TC-011</p>
+<p><strong>FR-08</strong>  TC-012, TC-014, TC-055</p>
+<p><strong>FR-09</strong>  TC-013, TC-014</p>
+<p><strong>FR-10</strong>  TC-015, TC-016, TC-017, TC-018, TC-055, TC-057</p>
+<p><strong>FR-11</strong>  TC-006, TC-007, TC-015, TC-016, TC-017, TC-018, TC-050, TC-053, TC-057</p>
+<p><strong>FR-12</strong>  TC-019</p>
+<p><strong>FR-13</strong>  TC-020, TC-021, TC-022, TC-023, TC-024, TC-025, TC-055, TC-057</p>
+<p><strong>FR-14</strong>  TC-018, TC-020, TC-021, TC-022, TC-024, TC-025</p>
+<p><strong>FR-15</strong>  TC-023, TC-024, TC-051</p>
+<p><strong>FR-16</strong>  TC-026, TC-027, TC-028</p>
+<p><strong>FR-17</strong>  TC-029, TC-030, TC-054</p>
+<p><strong>FR-18</strong>  TC-031, TC-032, TC-033, TC-054</p>
+<p><strong>FR-19</strong>  TC-003, TC-004, TC-029, TC-034, TC-035, TC-050, TC-056, TC-058</p>
+<p><strong>FR-20</strong>  TC-004, TC-035, TC-036, TC-037, TC-038, TC-050, TC-052, TC-056, TC-058</p>
+<p><strong>FR-21</strong>  TC-030, TC-036, TC-037, TC-040, TC-054, TC-056, TC-058</p>
+<p><strong>FR-22</strong>  TC-038, TC-039</p>
+<p><strong>FR-23</strong>  TC-041, TC-055, TC-056</p>
+<p><strong>FR-24</strong>  TC-028, TC-033, TC-042, TC-049, TC-056, TC-059</p>
+<p><strong>FR-25</strong>  TC-012, TC-015, TC-016, TC-043, TC-044, TC-050, TC-052, TC-057</p>
+<p><strong>FR-26</strong>  TC-039, TC-045, TC-059</p>
+<p><strong>FR-27</strong>  TC-046, TC-059</p>
+<p><strong>FR-28</strong>  TC-047, TC-051, TC-059</p>
+<p><strong>FR-29</strong>  TC-036, TC-048, TC-053, TC-058</p>
+<p><strong>FR-30</strong>  TC-040, TC-049, TC-051, TC-058, TC-059</p>
+<h2 id="appendix-b-decision-traceability-and-blocked-test-register"><strong>Appendix B | Decision traceability and blocked-test register</strong></h2>
+<p><strong>D-01 | Role/action matrix and role naming</strong>  TC-004, TC-005, TC-006, TC-008, TC-012, TC-019, TC-020, TC-025, TC-026, TC-027, TC-034, TC-035, TC-041, TC-042, TC-055, TC-056 | Stakeholder decision gate</p>
+<p><strong>D-02 | Odoo source fields, ownership, outages, duplicates</strong>  TC-001, TC-002, TC-003, TC-052 | Stakeholder decision gate</p>
+<p><strong>D-03 | Required fields, formats, date boundaries, timezone, end-date calculation</strong>  TC-001, TC-002, TC-015, TC-016, TC-017, TC-018, TC-057 | Stakeholder decision gate</p>
+<p><strong>D-04 | Trainer availability, holiday ownership, conflict overrides</strong>  TC-006, TC-007, TC-016, TC-053 | Stakeholder decision gate</p>
+<p><strong>D-05 | Plan types, duration, code, edits and versioning</strong>  TC-008, TC-009, TC-010, TC-011, TC-017, TC-055 | Stakeholder decision gate</p>
+<p><strong>D-06 | Master-data owners and file validation, errors and partial saves</strong>  TC-010, TC-012, TC-015, TC-016, TC-025, TC-043, TC-044, TC-050, TC-055, TC-057 | Stakeholder decision gate</p>
+<p><strong>D-07 | Batch ID, capacity, roster duplicates, identity and re-enrollment</strong>  TC-015, TC-018, TC-020, TC-021, TC-022, TC-023, TC-024, TC-055, TC-057 | Stakeholder decision gate</p>
+<p><strong>D-08 | Registration window, open/close/reopen and late registration</strong>  TC-020, TC-021, TC-022, TC-024 | Stakeholder decision gate</p>
+<p><strong>D-09 | Roster approval, rejection, closure and reopening</strong>  TC-019, TC-024, TC-025 | Stakeholder decision gate</p>
+<p><strong>D-10 | Attendance roles, correction, approval and cutoff</strong>  TC-026, TC-027, TC-028, TC-042 | Stakeholder decision gate</p>
+<p><strong>D-11 | Resource eligibility, promotion, versioning and existing-batch access</strong>  TC-013, TC-014 | Stakeholder decision gate</p>
+<p><strong>D-12 | Completion formula and exceptions</strong>  TC-029, TC-030, TC-048, TC-054 | Stakeholder decision gate</p>
+<p><strong>D-13 | Certificate eligibility, issuance, numbering, reissue and revocation</strong>  TC-031, TC-032, TC-033, TC-054 | Stakeholder decision gate</p>
+<p><strong>D-14 | Metric definitions, transitions, refresh, filters, exports, retention</strong>  TC-029, TC-030, TC-034, TC-035, TC-036, TC-037, TC-038, TC-040, TC-042, TC-048, TC-049, TC-053, TC-054, TC-056, TC-058 | Stakeholder decision gate</p>
+<p><strong>D-15 | PI inventory, masking, encryption, audit and retention</strong>  TC-032, TC-033, TC-038, TC-039, TC-040, TC-042, TC-045, TC-049, TC-059 | Stakeholder decision gate</p>
+<p><strong>D-16 | OTP provider, expiry, retries and login cool-off trigger/scope</strong>  TC-023, TC-040, TC-046, TC-047, TC-049, TC-051, TC-059 | Stakeholder decision gate</p>
+<p><strong>D-17 | Security architecture, URL requirement, file controls and secrets</strong>  TC-012, TC-039, TC-043, TC-044, TC-045, TC-052, TC-059 | Stakeholder decision gate</p>
+<p><strong>D-18 | Multi-project switching and auto-selection</strong>  TC-004, TC-035, TC-041, TC-056 | Stakeholder decision gate</p>
+<p><strong>D-19 | Failure messages and recovery behavior</strong>  TC-003, TC-050, TC-051, TC-052 | Stakeholder decision gate</p>
+<p><strong>D-20 | Nonfunctional targets and support model</strong>  TC-058 | Stakeholder decision gate</p>
+<h2 id="appendix-c-confirmed-business-rule-coverage"><strong>Appendix C | Confirmed business rule coverage</strong></h2>
+<p><strong>BR-01</strong>  TC-001, TC-002, TC-003, TC-004, TC-034, TC-035, TC-041, TC-055, TC-056</p>
+<p><strong>BR-02</strong>  TC-001, TC-008, TC-015, TC-055</p>
+<p><strong>BR-03</strong>  TC-008, TC-009</p>
+<p><strong>BR-04</strong>  TC-010, TC-011, TC-013, TC-014</p>
+<p><strong>BR-05</strong>  TC-015, TC-016, TC-017, TC-018, TC-057</p>
+<p><strong>BR-06</strong>  TC-006, TC-007, TC-016, TC-053</p>
+<p><strong>BR-07</strong>  TC-018, TC-020, TC-021, TC-022, TC-023, TC-024, TC-025, TC-057</p>
+<p><strong>BR-08</strong>  TC-024, TC-025</p>
+<p><strong>BR-09</strong>  TC-026, TC-027, TC-028</p>
+<p><strong>BR-10</strong>  TC-004, TC-005, TC-012, TC-019, TC-028, TC-032, TC-033, TC-035, TC-036, TC-037, TC-038, TC-040, TC-041, TC-042, TC-043, TC-044, TC-046, TC-047, TC-048, TC-049, TC-050, TC-051, TC-052, TC-056, TC-058, TC-059</p>
+<p><strong>BR-11</strong>  TC-038, TC-039, TC-042, TC-045, TC-049, TC-051, TC-059</p>
+<p><strong>BR-12</strong>  TC-029, TC-030, TC-031, TC-032, TC-033, TC-048, TC-054</p>
+<h2 id="appendix-d-exit-criteria-and-sign-off"><strong>Appendix D | Exit criteria and sign-off</strong></h2>
+<p>UAT exit requires all READY P1 cases to pass; each relevant BLOCKED case to receive an approved oracle and pass; evidence for every FR and confirmed BR; demonstration of authorization, upload integrity, registration capacity, future-attendance rejection, PI masking, certificate gating and audit; no unresolved critical/high security or data-integrity issue; and stakeholder approvals.</p>
+<p>Business Owner __________ Date ______ | Project Owner __________ Date ______ | Technical Owner __________ Date ______ | Information Security / Compliance __________ Date ______ | QA/Test Lead __________ Date ______</p>
+<h3 id="source"><strong>Source</strong></h3>
+<p>Teacher-Training-Tracker-PRD.docx, draft for stakeholder review, prepared 15 October 2026. The PRD remains authoritative for requirement meaning.</p><div class="footer">Converted from Teacher-Training-Tracker-Test-Cases.docx. Source document content is retained for review.</div></main></div><script>const q=document.querySelector('.search'),count=document.querySelector('.count'),paras=[...document.querySelectorAll('.content p,.content h1,.content h2,.content h3,.content h4,.content table')];q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();let n=0;for(const e of paras){const hit=!v||e.textContent.toLowerCase().includes(v);e.hidden=!hit;if(v&&hit)n++}count.textContent=v?n+' matching section'+(n===1?'':'s'):''});const hs=[...document.querySelectorAll('.content h2,.content h3')],links=[...document.querySelectorAll('.toc a')];if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))},{rootMargin:'-12% 0px -78% 0px'});hs.forEach(h=>io.observe(h))}</script></body></html>
