@@ -1,0 +1,12 @@
+{
+  "name": "teacher-training-tracker-demo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "sass src/scss/main.scss assets/css/app.css --no-source-map",
+    "start": "node server.mjs"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
