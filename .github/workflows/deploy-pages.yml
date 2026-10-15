@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - codebase/**
+      - docs/**
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -37,13 +38,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p dist/assets
+          mkdir -p dist/assets dist/docs
           cp codebase/index.html codebase/dashboard.html dist/
           cp -R codebase/assets/css codebase/assets/js dist/assets/
+          cp docs/*.html dist/docs/
           test -s dist/index.html
           test -s dist/dashboard.html
           test -s dist/assets/js/auth.js
           test -s dist/assets/js/app.js
+          test -s dist/docs/index.html
+          test -s dist/docs/Teacher-Training-Tracker-PRD.html
+          test -s dist/docs/Teacher-Training-Tracker-Test-Cases.html
+          test -s dist/docs/Teacher-Training-Tracker-Code-Review.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
