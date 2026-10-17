@@ -27,3 +27,5 @@ python docs\product-demo\build_expanded_demo.py
 ```
 
 Pass `english` or `hindi` to render one language only. The scripts use Microsoft neural voices and send only the relevant demo narration text to the speech service. They recreate the corresponding MP4 and subtitle files in this folder.
+
+Published video page: https://shanku09-design.github.io/TeacherTrainingDashboard/docs/product-demo/

@@ -1,0 +1,125 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.960
+Welcome to the Teacher Training Tracker.
+
+2
+00:00:02.960 --> 00:00:09.769
+We’ll take a closer look at the main modules using the Admin, Trainer, and Trainee journeys.
+
+3
+00:00:09.769 --> 00:00:22.424
+On the Admin dashboard, programme health is brought together through school readiness, teacher and student batches, trainer availability, timeline, and progress summaries.
+
+4
+00:00:22.424 --> 00:00:26.790
+The figures in this prototype are illustrative sample data.
+
+5
+00:00:27.190 --> 00:00:32.169
+The Project module keeps the programme scope and key dates visible.
+
+6
+00:00:32.169 --> 00:00:41.607
+Training plans turn that scope into five teacher phases, totalling twenty-five hours, and a student programme of fifteen hours.
+
+7
+00:00:41.607 --> 00:00:52.160
+Day-wise activities, learning resources, assessment, and feedback can be reviewed together, so the plan is clear before batches are scheduled.
+
+8
+00:00:52.560 --> 00:00:59.749
+The Batch Upload module accepts a schedule file and shows validation feedback before import.
+
+9
+00:00:59.749 --> 00:01:07.484
+Admins can review batch details alongside trainer availability and resolve coverage concerns early.
+
+10
+00:01:07.484 --> 00:01:15.220
+This connects school readiness, the training plan, dates, and the trainer responsible for delivery.
+
+11
+00:01:15.620 --> 00:01:27.492
+The reporting area brings together programme summary, school readiness and coverage, batch performance, attendance, trainer availability, and resource usage.
+
+12
+00:01:27.492 --> 00:01:32.710
+Filters help narrow a view by state, dates, training plan, or status.
+
+13
+00:01:32.710 --> 00:01:41.330
+Each report is designed to help teams move from a programme-level question to the relevant batch or school detail.
+
+14
+00:01:41.730 --> 00:01:47.976
+In the Trainer workspace, My Work highlights assigned batches and upcoming sessions.
+
+15
+00:01:47.976 --> 00:01:57.345
+Trainers can open participant registration, the day-wise training plan, and the content library from the same role-based menu.
+
+16
+00:01:57.345 --> 00:02:02.550
+This keeps the practical steps for preparing a session close together.
+
+17
+00:02:02.950 --> 00:02:10.204
+The participant module shows registrations, approval status, capacity, and the assigned batch.
+
+18
+00:02:10.204 --> 00:02:15.220
+Trainers can review the final list before the first training day.
+
+19
+00:02:15.220 --> 00:02:25.330
+In Mark Attendance, they select the session date and record each approved participant as present or absent, then save the register.
+
+20
+00:02:25.730 --> 00:02:31.256
+The Content Library connects resources to the training plan and audience.
+
+21
+00:02:31.256 --> 00:02:40.642
+It includes sample PDFs, video previews, presentations, interactive learning packages, and forms for assessment or feedback.
+
+22
+00:02:40.642 --> 00:02:48.590
+In this prototype, the previews are interactive and saved form submissions remain in the current browser.
+
+23
+00:02:48.990 --> 00:02:58.109
+The Trainee view, called My Training, shows phase progress, the next session, day-wise activities, and the resources for learning.
+
+24
+00:02:58.109 --> 00:03:08.560
+A learner can see which phase is under way and what comes next, so the programme feels like a guided journey rather than a list of separate sessions.
+
+25
+00:03:08.960 --> 00:03:16.368
+The Assessment module presents pre-training and post-training questions at the relevant point in a phase.
+
+26
+00:03:16.368 --> 00:03:20.954
+Session Feedback collects a short rating and an optional comment.
+
+27
+00:03:20.954 --> 00:03:31.890
+The Certificates view shows progress toward initial and full-programme certificates; the completion criteria shown here are placeholders in this prototype.
+
+28
+00:03:32.290 --> 00:03:39.357
+Together, these modules connect programme oversight, session delivery, and learner progress.
+
+29
+00:03:39.357 --> 00:03:49.727
+This is a browser-based prototype using sample data; its sign-in is for demonstration, and some changes are stored only in the browser.
+
+30
+00:03:49.727 --> 00:03:51.494
+Thank you for watching.
+
+31
+00:03:51.494 --> 00:03:56.180
+Which module would you like to explore in a live walkthrough?

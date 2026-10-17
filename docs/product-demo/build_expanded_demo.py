@@ -507,6 +507,10 @@ async def main():
         for n,(a,b,caption) in enumerate(cues,1):
             srt += [str(n),f"{stamp(a)} --> {stamp(b)}",caption,""]
         (ROOT/f"teacher-training-tracker-modules-{suffix}.srt").write_text("\n".join(srt),encoding="utf-8-sig")
+        vtt = ["WEBVTT", ""]
+        for n,(a,b,caption) in enumerate(cues,1):
+            vtt += [str(n),f"{stamp(a).replace(',', '.')} --> {stamp(b).replace(',', '.')}",caption,""]
+        (ROOT/f"teacher-training-tracker-modules-{suffix}.vtt").write_text("\n".join(vtt),encoding="utf-8")
         print(f"Created {video.name} ({offset/60:.1f} minutes), voice {voice}",flush=True)
         shutil.rmtree(work)
 
