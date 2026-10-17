@@ -39,12 +39,14 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist/assets dist/docs/product-demo
-          cp codebase/index.html codebase/dashboard.html dist/
+          cp codebase/index.html codebase/dashboard.html codebase/demo-english.html codebase/demo-hindi.html dist/
           cp -R codebase/assets/css codebase/assets/js dist/assets/
           cp docs/*.html dist/docs/
           cp docs/product-demo/index.html docs/product-demo/*.mp4 docs/product-demo/*.srt docs/product-demo/*.vtt dist/docs/product-demo/
           test -s dist/index.html
           test -s dist/dashboard.html
+          test -s dist/demo-english.html
+          test -s dist/demo-hindi.html
           test -s dist/assets/js/auth.js
           test -s dist/assets/js/app.js
           test -s dist/docs/index.html
