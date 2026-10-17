@@ -1,0 +1,19 @@
+{
+  "title": "Teacher Training Tracker | Product Demo",
+  "english": [
+    {"heading":"A connected training journey","body":"Welcome to the Teacher Training Tracker for KGBV digital classrooms. In this short tour, we’ll follow one training journey through the Admin, Trainer, and Trainee experiences."},
+    {"heading":"Admin | Programme overview","body":"The Admin view brings programme setup and delivery into one place. Start with a programme overview, then move into training plans, school readiness, batches, and progress reports to understand where support is needed."},
+    {"heading":"Admin | From overview to action","body":"Use the dashboard as a starting point for questions. Explore a report, focus on a state or batch, and follow the available details to plan the next action. The figures shown in this demo are illustrative sample data."},
+    {"heading":"Trainer | Make each session count","body":"Trainers can focus on the work assigned to them: review participants, follow the training plan, and record attendance. A shared content library keeps learning resources close to the session workflow."},
+    {"heading":"Trainee | Learning and progress","body":"Trainees have a focused space for their training, assessments, feedback, certificates, and learning resources. This gives participants a clear path from joining a session to reviewing what they learned."},
+    {"heading":"One programme, three perspectives","body":"Together, these views connect programme oversight, session delivery, and participant progress. This project currently demonstrates a browser-based prototype with sample data. Thank you for joining the tour. Which workflow would you like to explore in more detail?"}
+  ],
+  "hindi": [
+    {"heading":"जुड़ी हुई प्रशिक्षण यात्रा","body":"केजीबीवी डिजिटल कक्षाओं के लिए टीचर ट्रेनिंग ट्रैकर में आपका स्वागत है। इस छोटी सी झलक में हम एडमिन, ट्रेनर और प्रशिक्षु के अनुभवों के माध्यम से प्रशिक्षण की पूरी यात्रा देखेंगे।"},
+    {"heading":"एडमिन | कार्यक्रम का अवलोकन","body":"एडमिन दृश्य में कार्यक्रम की तैयारी और संचालन एक ही जगह पर दिखाई देते हैं। कार्यक्रम के अवलोकन से शुरुआत करें, फिर प्रशिक्षण योजनाओं, स्कूल की तैयारी, बैच और प्रगति रिपोर्ट देखें। इससे पता चलता है कि सहायता कहाँ आवश्यक है।"},
+    {"heading":"एडमिन | जानकारी से कार्रवाई तक","body":"डैशबोर्ड को अपने सवालों की शुरुआत के रूप में उपयोग करें। रिपोर्ट देखें, किसी राज्य या बैच पर ध्यान दें और उपलब्ध जानकारी के आधार पर अगला कदम तय करें। इस डेमो में दिखाई गई संख्याएँ केवल उदाहरण के लिए हैं।"},
+    {"heading":"ट्रेनर | हर सत्र को बेहतर बनाएँ","body":"ट्रेनर अपने निर्धारित काम पर ध्यान दे सकते हैं: प्रतिभागियों की जानकारी देखें, प्रशिक्षण योजना का पालन करें और उपस्थिति दर्ज करें। साझा सामग्री लाइब्रेरी में सत्र से जुड़ी सीखने की सामग्री आसानी से मिलती है।"},
+    {"heading":"प्रशिक्षु | सीखना और प्रगति","body":"प्रशिक्षुओं को प्रशिक्षण, आकलन, प्रतिक्रिया, प्रमाणपत्र और सीखने की सामग्री के लिए एक सरल स्थान मिलता है। इससे सत्र में शामिल होने से लेकर सीखी हुई बातों को दोहराने तक का रास्ता साफ रहता है।"},
+    {"heading":"एक कार्यक्रम, तीन नज़रिए","body":"ये तीनों दृश्य कार्यक्रम की निगरानी, सत्र संचालन और प्रतिभागियों की प्रगति को जोड़ते हैं। यह प्रोजेक्ट अभी नमूना डेटा वाला ब्राउज़र-आधारित प्रोटोटाइप दिखाता है। इस यात्रा में शामिल होने के लिए धन्यवाद। आप किस प्रक्रिया को विस्तार से देखना चाहेंगे?"}
+  ]
+}

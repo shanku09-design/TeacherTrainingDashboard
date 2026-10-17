@@ -1,0 +1,23 @@
+﻿1
+00:00:00,000 --> 00:00:13,700
+Welcome to the Teacher Training Tracker for KGBV digital classrooms. In this short tour, we’ll follow one training journey through the Admin, Trainer, and Trainee experiences.
+
+2
+00:00:13,950 --> 00:00:29,950
+The Admin view brings programme setup and delivery into one place. Start with a programme overview, then move into training plans, school readiness, batches, and progress reports to understand where support is needed.
+
+3
+00:00:30,200 --> 00:00:48,120
+Use the dashboard as a starting point for questions. Explore a report, focus on a state or batch, and follow the available details to plan the next action. The figures shown in this demo are illustrative sample data.
+
+4
+00:00:48,370 --> 00:01:03,480
+Trainers can focus on the work assigned to them: review participants, follow the training plan, and record attendance. A shared content library keeps learning resources close to the session workflow.
+
+5
+00:01:03,730 --> 00:01:18,790
+Trainees have a focused space for their training, assessments, feedback, certificates, and learning resources. This gives participants a clear path from joining a session to reviewing what they learned.
+
+6
+00:01:19,040 --> 00:01:39,720
+Together, these views connect programme oversight, session delivery, and participant progress. This project currently demonstrates a browser-based prototype with sample data. Thank you for joining the tour. Which workflow would you like to explore in more detail?

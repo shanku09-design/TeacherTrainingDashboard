@@ -1,0 +1,25 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Run the Hello, World! examples in Python, C, and Node.js
+    cmds:
+      - task: python
+      - task: c
+      - task: node
+
+  python:
+    desc: Run the Python example
+    cmds:
+      - python hello_world.py
+
+  c:
+    desc: Compile and run the C example
+    cmds:
+      - gcc hello_world.c -o hello_world
+      - ./hello_world
+
+  node:
+    desc: Run the Node.js example
+    cmds:
+      - node hello_world.js
